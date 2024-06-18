@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+É o conceito de construir objetos complexos usando objetos mais simples, 
+compondo funcionalidades a partir de várias pequenas partes.
+Em JavaScript, isso pode ser feito criando objetos que possuem 
+outros objetos como propriedades.
+
+
+Herança x Compisicao
+A principal diferença entre herança e composição é que a herança é 
+uma relação do tipo "é-um", enquanto a composição é uma relação do tipo "tem-um"
+*/
+      class Layout {
+        #alfabeto
+        #modelo
+
+        constructor(modelo) {
+          this.#modelo = modelo //Array
+        }
+      }
+
+      class Teclado {
+        #controlador
+        #switch
+        #layout
+
+        constructor() {
+          this.#layout = new Layout()
+        }
+
+        teclar() {
+          console.log('A, B, C...')
+        }
+      }
+
+      class Bateria {
+        carregar() {
+          console.log('Carregando computador.')
+        }
+        ligar() {
+          console.log('Ligando computador.')
+        }
+      }
+
+      class Tela {
+        ligar() {
+          console.log('Ligando tela.')
+        }
+      }
+
+      class Note {
+        constructor() {
+          this.teclado = new Teclado()
+          this.bateria = new Bateria()
+          this.tela = new Tela()
+        }
+        teclar() {
+          this.teclado.teclar()
+          console.log('Dirigindo o carro.')
+        }
+        ligar() {
+          this.bateria.ligar()
+          this.tela.ligar()
+        }
+        carregar() {
+          this.bateria.carregar()
+        }
+      }
+
+      const notebook = new Note()
+
+      notebook.teclar()
+      notebook.ligar()
+      notebook.carregar()
+    </script>
+  </body>
+</html>
+<!-- 
+
+Identifique um objeto do mundo real, menos automovel, e utilize os conceitos
+de composicao para compor a complexidade desse objeto, tente chegar no maior
+nivel de atomicidade possivel 
+
+-->
