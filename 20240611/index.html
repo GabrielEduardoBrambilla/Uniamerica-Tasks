@@ -7,17 +7,6 @@
   </head>
   <body>
     <script>
-      /*
-É o conceito de construir objetos complexos usando objetos mais simples, 
-compondo funcionalidades a partir de várias pequenas partes.
-Em JavaScript, isso pode ser feito criando objetos que possuem 
-outros objetos como propriedades.
-
-
-Herança x Compisicao
-A principal diferença entre herança e composição é que a herança é 
-uma relação do tipo "é-um", enquanto a composição é uma relação do tipo "tem-um"
-*/
       class Layout {
         #alfabeto
         #modelo
@@ -63,8 +52,8 @@ uma relação do tipo "é-um", enquanto a composição é uma relação do tipo 
           this.tela = new Tela()
         }
         teclar() {
+          console.log('Teclando...')
           this.teclado.teclar()
-          console.log('Dirigindo o carro.')
         }
         ligar() {
           this.bateria.ligar()
@@ -83,10 +72,3 @@ uma relação do tipo "é-um", enquanto a composição é uma relação do tipo 
     </script>
   </body>
 </html>
-<!-- 
-
-Identifique um objeto do mundo real, menos automovel, e utilize os conceitos
-de composicao para compor a complexidade desse objeto, tente chegar no maior
-nivel de atomicidade possivel 
-
--->
